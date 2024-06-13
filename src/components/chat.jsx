@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { Avatar } from '@mui/material';
+import { Send } from '@mui/icons-material';
+
 const Chat = () => {
   const [messages, setMessages] = useState([
     { user: 'Allie', text: 'Hey, I wanted to check in on our financial metrics...' },
@@ -35,20 +38,30 @@ const Chat = () => {
           const showUserLabel = index === 0 || messages[index - 1].user !== msg.user;
           return (
             <div key={index} className={`message ${msg.user === 'You' ? 'user-message' : 'allie-message'}`}>
-              {showUserLabel && <strong>{msg.user}</strong>}
-              <div className="message-text">{msg.text}</div>
+              {showUserLabel && (
+                <div className="message-header">
+                  <Avatar />
+                  <strong>{msg.user}</strong>
+                </div>
+              )}
+              <div className="message-text_container">
+                <div className="message-text">{msg.text}</div>
+              </div>
             </div>
           );
         })}
       </div>
       <div className="input-container">
-        <textarea
-          value={newMessage}
-          onChange={handleMessageChange}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your message..."
-        ></textarea>
-        <button onClick={handleSendMessage}>Send</button>
+        <div className="textarea-wrapper">
+          <textarea
+            value={newMessage}
+            onChange={handleMessageChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Type your message..."
+          ></textarea>
+          {/* <button onClick={handleSendMessage}>Send</button> */}
+          <Send onClick={handleSendMessage} className='button'/>
+        </div>
       </div>
     </div>
   );
