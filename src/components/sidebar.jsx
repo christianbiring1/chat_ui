@@ -1,5 +1,15 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import { Home } from '@mui/icons-material';
+import { Person3 } from '@mui/icons-material';
+
+const iconStyle = {
+  fontSize: '2.7rem',
+  minWidth: '40px',
+  color: '#000'
+}
+
+const mobLinkStyles = {
+  fontSize: '1.6rem'
+};
 
 const SideBar = () => {
   return (
@@ -8,10 +18,10 @@ const SideBar = () => {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Home/>
+                  <Person3 style={ iconStyle } />
                 </ListItemIcon>
                 <ListItemText>
-                    <Typography variant='body1'>
+                    <Typography variant='body1' style={ mobLinkStyles }>
                       Allie
                     </Typography>
                 </ListItemText>
